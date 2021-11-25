@@ -8,18 +8,86 @@
 import Foundation
 import UIKit
 
-class Alert : UIViewController,UIPickerViewDelegate {
+class AlertViewController : UIViewController,UIPickerViewDelegate {
     
     var imagePicker = UIImagePickerController()
-    //declared var
+    var date = UIDatePicker()
+    
+    var textTmp:String!
+    
+    @IBOutlet weak var dateText: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setupView()
+    }
+    
+    @IBAction func TextField(_ sender: Any) {
+        let alertText = UIAlertController(title: "Your Name", message: "Enter a text", preferredStyle: .alert)
+        alertText.addTextField { text in
+            self.textTmp = text.text
+        }
+        
+        let save = UIAlertAction(title: "Save", style: .default, handler: { (save:UIAlertAction!) in
+            let textField = alertText.textFields![0]
+            print("\(textField.text!)")
+            self.doSaveName()
+        })
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { (cancel) -> Void in
+            self.doCancelName()
+        })
+        
+        alertText.addAction(cancel)
+        alertText.addAction(save)
+        self.present(alertText, animated: true, completion: nil)
+    }
+    
+    func doSaveName() {
         
     }
     
-    @IBAction func buttonImageMe(_ sender: Any) {
+    func doCancelName() {
+        
+    }
+    
+    func setupView() {
+        dateText.text = "Horroscope"
+        dateText.backgroundColor = UIColor.systemPurple
+        dateText.layer.cornerRadius = 8
+        
+        date.preferredDatePickerStyle = .wheels
+        date.datePickerMode = .date
+        date.backgroundColor = .lightGray
+        dateText.inputView = date
+        
+        let toolBar = UIToolbar()
+        toolBar.tintColor = .blue
+        
+        let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissPicker))
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(ButtonDone))
+        
+        toolBar.setItems([cancel,space,done], animated: true)
+        toolBar.barStyle = .default
+        toolBar.isUserInteractionEnabled = true
+        toolBar.sizeToFit()
+        
+        dateText.inputAccessoryView = toolBar
+        
+        self.view.addSubview(dateText)
+    }
+    
+    @objc func ButtonDone() {
+        view.endEditing(true)
+    }
+    
+    @objc func dismissPicker() {
+       view.endEditing(true)
+   }
+    
+    func buttonImageMe(_ sender: Any) {
 //        userView.pickImage(self){ image in
 //            //
 //        }

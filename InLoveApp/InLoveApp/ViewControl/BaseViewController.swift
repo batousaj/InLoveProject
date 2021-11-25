@@ -32,22 +32,29 @@ class BaseViewController: UIViewController {
         let but2:UIButton = UIButton.init(frame: CGRect(x:circleView.frame.width, y: circleView.frame.height, width: 100, height: 50))
         let but3:UIButton = UIButton.init(frame: CGRect(x:circleView.frame.width, y: circleView.frame.height, width: 100, height: 50))
 
-        
-        but1.setTitle("fall in love", for: .normal)
-        but1.backgroundColor = .gray
-        but2.setTitle("0", for: .normal)
-        but2.backgroundColor = .gray
-        but2.titleLabel?.font = UIFont.systemFont(ofSize: 50)
-        but3.setTitle("days", for: .normal)
-        but3.backgroundColor = .gray
-        
         but1.center = CGPoint(x: circleView.frame.size.width/2, y: circleView.frame.size.height/2 - 60)
-        circleView.addSubview(but1)
         but2.center = CGPoint(x: circleView.frame.size.width/2, y: circleView.frame.size.height/2)
-        circleView.addSubview(but2)
         but3.center = CGPoint(x: circleView.frame.size.width/2, y: circleView.frame.size.height/2 + 60)
-        circleView.addSubview(but3)
         
+        but1.layer.masksToBounds = true
+        but1.setTitle("fall in love", for: .normal)
+        but1.titleLabel?.font = UIFont.systemFont(ofSize: 40)
+        but1.layer.cornerRadius = but1.bounds.width/2.0
+        but1.backgroundColor = UIColor.quaternaryLabel
+        but1.layer.borderWidth = 3
+        but1.layer.borderColor = UIColor.systemOrange.cgColor
+        but1.tintColor = UIColor.black
+        
+        but2.setTitle("0", for: .normal)
+        but2.titleLabel?.font = UIFont.systemFont(ofSize: 50)
+        but2.tintColor = .black
+        
+        but3.setTitle("days", for: .normal)
+        but3.tintColor = .purple
+        
+        circleView.addSubview(but1)
+        circleView.addSubview(but2)
+        circleView.addSubview(but3)
         view.addSubview(circleView)
         
     }
@@ -77,14 +84,33 @@ class BaseViewController: UIViewController {
         butNameMe.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         butNameMe.addTarget(self, action: #selector(actionAddImageMe), for: UIButton.Event.touchDown)
         
+        let butHoroMe = UIButton.init(frame: CGRect(x:view.frame.width/10 + 40, y: view.frame.height*2/3 + 150 + 10 + 30, width: 70, height: 30))
+        butHoroMe.setTitle("Horoscope", for: .normal)
+        butHoroMe.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+        butHoroMe.addTarget(self, action: #selector(actionAddImageMe), for: UIButton.Event.touchDown)
+        
         //button partner
         let butNamePart = UIButton.init(frame: CGRect(x:view.frame.width*3/5 + 50, y: view.frame.height*2/3 + 150 + 10, width: 70, height: 30))
         butNamePart.setTitle("Partner", for: .normal)
         butNamePart.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         butNamePart.addTarget(self, action: #selector(actionAddImagePart), for: UIButton.Event.touchDown)
         
+        let butHoroPart = UIButton(type: UIButton.ButtonType.custom)
+        butHoroPart.frame = CGRect(x:view.frame.width*3/5 + 40, y: view.frame.height*2/3 + 150 + 10 + 30, width: 70, height: 15)
+        butHoroPart.setTitle("123", for: .normal)
+        butHoroPart.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        butHoroPart.titleLabel?.numberOfLines = 1
+        butHoroPart.titleLabel?.adjustsFontSizeToFitWidth = true
+        butHoroPart.titleLabel?.lineBreakMode = .byClipping
+        butHoroPart.backgroundColor = .gray
+        butHoroPart.layer.cornerRadius = 8
+//        butHoroPart.sizeThatFits(CGSize(width: butHoroPart.frame.size.width, height: 15))
+        butHoroPart.addTarget(self, action: #selector(actionAddImageMe), for: UIButton.Event.touchDown)
+        
         view.addSubview(butNameMe)
         view.addSubview(butNamePart)
+        view.addSubview(butHoroMe)
+        view.addSubview(butHoroPart)
         
     }
     
@@ -148,27 +174,64 @@ class BaseViewController: UIViewController {
     
     @objc func actionAddImageMe(_ sender:UIButton){
         print("Add picture Me");
-        let alert = UIAlertController(title: "Some Title", message: "Enter a text", preferredStyle: .alert)
-
-        alert.addTextField { (textField) in
-
-        }
-
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [self, weak alert] (_) in
-            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-            if textField?.text != ""{
-                print("Text field: \(textField?.text!)")
-            }
-            
-            self.buttonImageMe?.setTitle(textField?.text, for: .normal)
-        }))
-
-        // 4. Present the alert.
-        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func actionAddImagePart(_ sender:UIButton){
         print("Add picture Partner");
+        let picker = UIDatePicker(frame: CGRect(x: view.frame.width*3/4, y: view.frame.height*3/4, width: view.frame.width, height: view.frame.height/4))
+                                  
+                                  view.addSubview(picker)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //do no thing
+    }
+    
+    lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [smallRectangleView, bigRectangleView, bigRectangleView2])
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.axis = .vertical
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+
+    var smallRectangleView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .orange
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    var bigRectangleView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .green
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    var bigRectangleView2: UIView = {
+        let view = UIView()
+        view.backgroundColor = .purple
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    func setupLayout() {
+        // Stack View
+        view.addSubview(stackView)
+        stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+
+        // Small Recntangle View
+        let heightConstraint1 = NSLayoutConstraint(item: smallRectangleView, attribute: .height, relatedBy: .equal, toItem: bigRectangleView, attribute: .height, multiplier: 0.25, constant: 0.0)
+
+        // Big Rectangle View
+        let heightConstraint2 = NSLayoutConstraint(item: bigRectangleView, attribute: .height, relatedBy: .equal, toItem: bigRectangleView2, attribute: .height, multiplier: 1.0, constant: 0.0)
+
+        NSLayoutConstraint.activate([heightConstraint1, heightConstraint2])
     }
     
 }
