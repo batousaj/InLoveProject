@@ -34,6 +34,15 @@
                                     <segue destination="TTF-k4-Yeh" kind="show" id="KfD-cv-l0N"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQu-NT-ULV">
+                                <rect key="frame" x="174" y="178" width="72" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Media"/>
+                                <connections>
+                                    <segue destination="ABD-vp-ERi" kind="show" id="sMr-5O-baC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -87,7 +96,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycE-gp-yYq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1932" y="256"/>
+            <point key="canvasLocation" x="1697" y="256"/>
+        </scene>
+        <!--MediaAndImageView-->
+        <scene sceneID="89l-jA-heR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MediaAndImageView" id="ABD-vp-ERi" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="u7w-kP-W63"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BTa-9y-1bm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1619" y="85"/>
         </scene>
     </scenes>
     <resources>

@@ -8,30 +8,50 @@
 import Foundation
 import UIKit
 
-class AlertViewController : UIViewController,UIPickerViewDelegate {
+class AlertViewController : UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     
     var imagePicker = UIImagePickerController()
     var date = UIDatePicker()
+    var picker = UIPickerView()
+    var loadingView = UIActivityIndicatorView()
     
+    //int constant
     var textTmp:String!
+    var arrayPlay:[String] =  ["NewYork","LonDon","Tokyo","Seoul","HaNoi","Berlin","Rio DeJanero","Paris","BangKok","Singapore"]
+    var arrayNum:[String] =  ["1","2","3","4","5","6","7","8","9","10"]
     
     @IBOutlet weak var dateText: UITextField!
+    @IBOutlet weak var pickerButton: UIButton!
+    
+    var datePicker:UIDatePicker = UIDatePicker()
+    var alertText:UIAlertController!
+    let toolBar = UIToolbar()
+    
+    var selectedDate:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.picker.delegate = self
+        self.picker.dataSource = self
         setupView()
     }
+
     
     @IBAction func TextField(_ sender: Any) {
-        let alertText = UIAlertController(title: "Your Name", message: "Enter a text", preferredStyle: .alert)
+        alertText = UIAlertController(title: "Your Name", message: "Enter a text", preferredStyle: .alert)
         alertText.addTextField { text in
-            self.textTmp = text.text
+            self.doDatePicker()
+            text.inputView = self.datePicker
+            text.inputAccessoryView = self.toolBar
+            
         }
         
         let save = UIAlertAction(title: "Save", style: .default, handler: { (save:UIAlertAction!) in
-            let textField = alertText.textFields![0]
-            print("\(textField.text!)")
+            let textField = self.alertText?.textFields![0] // Force unwrapping because we know it exists.
+            if textField?.text != ""{
+                print("Text field: \(textField?.text!)")
+            }
             self.doSaveName()
         })
         
@@ -44,16 +64,124 @@ class AlertViewController : UIViewController,UIPickerViewDelegate {
         self.present(alertText, animated: true, completion: nil)
     }
     
-    func doSaveName() {
+    func doDatePicker(){
+
+        self.datePicker = UIDatePicker(frame:CGRect(x: 0, y: self.view.frame.size.height - 220, width:self.view.frame.size.width, height: 216))
+        self.datePicker.backgroundColor = UIColor.white
+        datePicker.datePickerMode = .date
+
+        // ToolBar
+
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
+        toolBar.sizeToFit()
+
+        // Adding Button ToolBar
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.doneClick))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolBar.setItems([spaceButton, doneButton], animated: true)
+        toolBar.isUserInteractionEnabled = true
+
+        self.toolBar.isHidden = false
+
+    }
+
+
+    @objc func doneClick() {
+        let dateFormatter1 = DateFormatter()
+            dateFormatter1.dateStyle = .medium
+            dateFormatter1.timeStyle = .none
+//        datePicker.datePickerMode = UIDatePicker.Mode.date
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "dd/MM/yyyy"
+//        selectedDate = dateFormatter.string(from: datePicker.date)
         
+        datePicker.isHidden = true
+        self.toolBar.isHidden = true
+    }
+    
+    func doSaveName() {
+        self.view.endEditing(true)
     }
     
     func doCancelName() {
-        
+        datePicker.isHidden = true
+        self.toolBar.isHidden = true
+        self.view.endEditing(true)
     }
+    
+    @IBAction func PickerBut(_ sender: Any) {
+        self.view.addSubview(picker)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        pickerButton.titleLabel?.text = arrayPlay[row]
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 3
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if component == 0 {
+            return self.arrayPlay.count
+        } else if component == 1 {
+            return self.arrayNum.count
+        } else {
+            return self.arrayNum.count
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if component == 0 {
+            return arrayPlay[row]
+        } else if component == 1 {
+            return arrayNum[row]
+        } else {
+            return arrayNum[row]
+        }
+    }
+    
+    @IBAction func loadingView(_ sender: Any) {
+        if loadingView.isAnimating == true{
+            loadingView.stopAnimating()
+        loadingView = UIActivityIndicatorView(style: .large)
+        loadingView.center = CGPoint(x: view.frame.width/2, y: view.frame.height/2)
+        let timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(timerWork), userInfo: nil, repeats: false)
+        }
+    }
+    
+    @objc func timerWork() {
+        loadingView.startAnimating()
+        view.addSubview(loadingView)
+    }
+    
+    @IBAction func optionsView(_ sender: Any) {
+        let action = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let sex = UIAlertAction(title: "Sex", style: .default) { (sex) in
+            //
+        }
+        
+        let dob = UIAlertAction(title: "Date of Birth", style: .default) { (sex) in
+            //
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { (cancel) in
+            self.view.endEditing(true)
+        })
+        
+        action.addAction(sex)
+        action.addAction(dob)
+        action.addAction(cancel)
+        self.present(action, animated: true, completion: nil)
+    }
+    
     
     func setupView() {
         dateText.text = "Horroscope"
+//        dateText.placeholder = "Horroscope"
         dateText.backgroundColor = UIColor.systemPurple
         dateText.layer.cornerRadius = 8
         
@@ -87,154 +215,22 @@ class AlertViewController : UIViewController,UIPickerViewDelegate {
        view.endEditing(true)
    }
     
-    func buttonImageMe(_ sender: Any) {
-//        userView.pickImage(self){ image in
-//            //
-//        }
-       
-        //1. Create the alert controller.
-           let alert = UIAlertController(title: "Some Title", message: "Enter a text", preferredStyle: .alert)
-
-           //2. Add the text field. You can configure it however you need.
-           alert.addTextField { (textField) in
-//               self.doDatePicker()
-//               textField.inputView = self.datePicker
-//               textField.inputAccessoryView = self.toolBar
-           }
-
-           // 3. Grab the value from the text field, and print it when the user clicks OK.
-           alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-               let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-               if textField?.text != ""{
-                   print("Text field: \(textField?.text!)")
-               }
-           }))
-
-           // 4. Present the alert.
-           self.present(alert, animated: true, completion: nil)
+    
+    @IBAction func textView(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        
+        let done = UIAlertAction(title: "Done", style: .default) { text in
+            self.view.endEditing(true)
+        }
+        
+        let text = UITextView(frame: CGRect(x: 8, y: 8, width: alert.view.frame.width, height: alert.view.frame.height), textContainer: NSTextContainer(size: alert.view.frame.size))
+        
+        alert.title = " 12345646548asdsa dsa5d4s3a21d3as21d8 sad sa \n asd1sa32d158sa45d1625as165d1csacxcxz846546513 \n 321asd684sa6d1sad96as4d1sa21d6as4d6as46d1sa \n sad4as6d46as0das1d6as69d8"
+        
+//        alert.view.addSubview(text)
+        alert.addAction(done)
+        present(alert, animated: true, completion: nil)
     }
     
-    var datePicker:UIDatePicker = UIDatePicker()
-    let toolBar = UIToolbar()
-
-   func doDatePicker(){
-       // DatePicker
-     // datePicker = UIDatePicker()
-
-       self.datePicker = UIDatePicker(frame:CGRect(x: 0, y: self.view.frame.size.height - 220, width:self.view.frame.size.width, height: 216))
-       self.datePicker.backgroundColor = UIColor.white
-       datePicker.datePickerMode = .date
-
-       // ToolBar
-
-       toolBar.barStyle = .default
-       toolBar.isTranslucent = true
-       toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
-       toolBar.sizeToFit()
-
-       // Adding Button ToolBar
-       let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.doneClick))
-       let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-       let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelClick))
-       toolBar.setItems([cancelButton, spaceButton, doneButton], animated: true)
-       toolBar.isUserInteractionEnabled = true
-
-       self.toolBar.isHidden = false
-
-   }
-
-
-   @objc func doneClick() {
-       let dateFormatter1 = DateFormatter()
-       dateFormatter1.dateStyle = .medium
-       dateFormatter1.timeStyle = .none
-
-       datePicker.isHidden = true
-       self.toolBar.isHidden = true
-   }
-
-   @objc func cancelClick() {
-       datePicker.isHidden = true
-       self.toolBar.isHidden = true
-   }
     
-    var picker = UIImagePickerController();
-    var alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
-    var viewController: UIViewController?
-    var pickImageCallback : ((UIImage) -> ())?;
-//        
-//    override init() {
-//                super.init()
-//                let cameraAction = UIAlertAction(title: "Camera", style: .default){
-//                    UIAlertAction in
-//                    self.openCamera()
-//                }
-//                let galleryAction = UIAlertAction(title: "Gallery", style: .default){
-//                    UIAlertAction in
-//                    self.openGallery()
-//                }
-//                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel){
-//                    UIAlertAction in
-//                }
-//
-//                // Add the actions
-//    //            picker.delegate = self
-//                alert.addAction(cameraAction)
-//                alert.addAction(galleryAction)
-//                alert.addAction(cancelAction)
-//            }
-//    
-//            func pickImage(_ viewController: UIViewController, _ callback: @escaping ((UIImage) -> ())) {
-//                pickImageCallback = callback;
-//                self.viewController = viewController;
-//
-//                alert.popoverPresentationController?.sourceView = self.viewController!.view
-//
-//                viewController.present(alert, animated: true, completion: nil)
-//            }
-//            func openCamera(){
-//                alert.dismiss(animated: true, completion: nil)
-//                if(UIImagePickerController .isSourceTypeAvailable(.camera)){
-//                    picker.sourceType = .camera
-//                    self.viewController!.present(picker, animated: true, completion: nil)
-//                } else {
-//                    let alertController: UIAlertController = {
-//                        let controller = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
-//                        let action = UIAlertAction(title: "OK", style: .default)
-//                        controller.addAction(action)
-//                        return controller
-//                    }()
-//                    viewController?.present(alertController, animated: true)
-//                }
-//            }
-//            func openGallery(){
-//                alert.dismiss(animated: true, completion: nil)
-//                picker.sourceType = .photoLibrary
-//                self.viewController!.present(picker, animated: true, completion: nil)
-//            }
-//
-//            
-//            func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//                picker.dismiss(animated: true, completion: nil)
-//            }
-//            //for swift below 4.2
-//            //func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//            //    picker.dismiss(animated: true, completion: nil)
-//            //    let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-//            //    pickImageCallback?(image)
-//            //}
-//            
-//            // For Swift 4.2+
-//            func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//                picker.dismiss(animated: true, completion: nil)
-//                guard let image = info[.originalImage] as? UIImage else {
-//                    fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
-//                }
-//                pickImageCallback?(image)
-//            }
-//
-//
-//
-//            @objc func imagePickerController(_ picker: UIImagePickerController, pickedImage: UIImage?) {
-//            }
 }
