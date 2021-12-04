@@ -11,6 +11,10 @@
 		FD5DAD5527490F0100842195 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5DAD5427490F0100842195 /* BaseViewController.swift */; };
 		FD5DAD5D27491A2800842195 /* ViewControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5DAD5C27491A2800842195 /* ViewControl.storyboard */; };
 		FD5DAD7C274BC93E00842195 /* asset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD5DAD7B274BC93E00842195 /* asset.xcassets */; };
+		FD88B1782758F8EF0001B1AC /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD88B1772758F8EF0001B1AC /* Text.swift */; };
+		FD88B17A2758F9560001B1AC /* Texting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD88B1792758F9560001B1AC /* Texting.storyboard */; };
+		FDABA71E275B739F00C0000A /* APIService.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDABA71D275B739F00C0000A /* APIService.storyboard */; };
+		FDABA720275B73CB00C0000A /* APIControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDABA71F275B73CB00C0000A /* APIControler.swift */; };
 		FDE34880274FC5D0008A130D /* AlertView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDE3487F274FC5CF008A130D /* AlertView.storyboard */; };
 		FDFA6CA72751F1CD00639F6B /* MediaShareAndShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA6CA62751F1CD00639F6B /* MediaShareAndShow.swift */; };
 		FDFA6CA92752038800639F6B /* MediaAndImageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDFA6CA82752038800639F6B /* MediaAndImageView.storyboard */; };
@@ -26,6 +30,10 @@
 		FD5DAD5427490F0100842195 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FD5DAD5C27491A2800842195 /* ViewControl.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewControl.storyboard; sourceTree = "<group>"; };
 		FD5DAD7B274BC93E00842195 /* asset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = asset.xcassets; sourceTree = "<group>"; };
+		FD88B1772758F8EF0001B1AC /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		FD88B1792758F9560001B1AC /* Texting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Texting.storyboard; sourceTree = "<group>"; };
+		FDABA71D275B739F00C0000A /* APIService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APIService.storyboard; sourceTree = "<group>"; };
+		FDABA71F275B73CB00C0000A /* APIControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIControler.swift; sourceTree = "<group>"; };
 		FDE3487F274FC5CF008A130D /* AlertView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AlertView.storyboard; sourceTree = "<group>"; };
 		FDFA6CA62751F1CD00639F6B /* MediaShareAndShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaShareAndShow.swift; sourceTree = "<group>"; };
 		FDFA6CA82752038800639F6B /* MediaAndImageView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MediaAndImageView.storyboard; sourceTree = "<group>"; };
@@ -88,18 +96,20 @@
 			path = Animation;
 			sourceTree = "<group>";
 		};
-		FD5DAD5027490D6400842195 /* Image */ = {
+		FD5DAD5027490D6400842195 /* ImageAudioVieo */ = {
 			isa = PBXGroup;
 			children = (
 				FDFA6CA82752038800639F6B /* MediaAndImageView.storyboard */,
 				FDFA6CA62751F1CD00639F6B /* MediaShareAndShow.swift */,
 			);
-			path = Image;
+			path = ImageAudioVieo;
 			sourceTree = "<group>";
 		};
 		FD5DAD5127490D8400842195 /* Texting */ = {
 			isa = PBXGroup;
 			children = (
+				FD88B1792758F9560001B1AC /* Texting.storyboard */,
+				FD88B1772758F8EF0001B1AC /* Text.swift */,
 			);
 			path = Texting;
 			sourceTree = "<group>";
@@ -110,6 +120,15 @@
 				FD5DAD7B274BC93E00842195 /* asset.xcassets */,
 			);
 			path = Media;
+			sourceTree = "<group>";
+		};
+		FDABA71C275B733D00C0000A /* RestfulAPIService */ = {
+			isa = PBXGroup;
+			children = (
+				FDABA71D275B739F00C0000A /* APIService.storyboard */,
+				FDABA71F275B73CB00C0000A /* APIControler.swift */,
+			);
+			path = RestfulAPIService;
 			sourceTree = "<group>";
 		};
 		FDE3487C274FB7FD008A130D /* Toolbar */ = {
@@ -138,10 +157,11 @@
 		FDFC6E872747B6DF002A6CDA /* InLoveApp */ = {
 			isa = PBXGroup;
 			children = (
+				FDABA71C275B733D00C0000A /* RestfulAPIService */,
 				FDE3487C274FB7FD008A130D /* Toolbar */,
 				FD5DAD7A274BC90600842195 /* Media */,
 				FD5DAD5127490D8400842195 /* Texting */,
-				FD5DAD5027490D6400842195 /* Image */,
+				FD5DAD5027490D6400842195 /* ImageAudioVieo */,
 				FD5DAD4F27490D5B00842195 /* Animation */,
 				FD5DAD4E27490D5000842195 /* Notification */,
 				FD5DAD4D27490D4800842195 /* Alert */,
@@ -221,6 +241,8 @@
 				FDFC6E902747B6DF002A6CDA /* Main.storyboard in Resources */,
 				FDFA6CA92752038800639F6B /* MediaAndImageView.storyboard in Resources */,
 				FDE34880274FC5D0008A130D /* AlertView.storyboard in Resources */,
+				FD88B17A2758F9560001B1AC /* Texting.storyboard in Resources */,
+				FDABA71E275B739F00C0000A /* APIService.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,9 +256,11 @@
 				FD5DAD5527490F0100842195 /* BaseViewController.swift in Sources */,
 				FDFC6E8D2747B6DF002A6CDA /* ViewController.swift in Sources */,
 				FDFC6E892747B6DF002A6CDA /* AppDelegate.swift in Sources */,
+				FD88B1782758F8EF0001B1AC /* Text.swift in Sources */,
 				FD5DAD5327490DEF00842195 /* Alert.swift in Sources */,
 				FDFC6E8B2747B6DF002A6CDA /* SceneDelegate.swift in Sources */,
 				FDFA6CA72751F1CD00639F6B /* MediaShareAndShow.swift in Sources */,
+				FDABA720275B73CB00C0000A /* APIControler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

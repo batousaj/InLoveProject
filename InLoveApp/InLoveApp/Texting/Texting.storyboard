@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QY0-Mw-LHh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PVf-Z1-pGA">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -8,21 +8,21 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Media And Image View Controller-->
-        <scene sceneID="S3V-tE-qJy">
+        <!--Text View Controller-->
+        <scene sceneID="Hym-qU-jTB">
             <objects>
-                <viewController id="QY0-Mw-LHh" customClass="MediaAndImageViewController" customModule="InLoveApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="12o-9z-7j4">
+                <viewController id="PVf-Z1-pGA" customClass="TextViewController" customModule="InLoveApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f8j-zV-YIy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="5G4-vY-Lpb"/>
+                        <viewLayoutGuide key="safeArea" id="x7h-bD-Y6f"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="HTF-8s-zpc"/>
+                    <navigationItem key="navigationItem" id="Sib-hd-HHW"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="62g-m6-ouI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fbX-8W-hzW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1619" y="85"/>
+            <point key="canvasLocation" x="1786" y="178"/>
         </scene>
     </scenes>
     <resources>
