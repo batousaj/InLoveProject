@@ -15,6 +15,17 @@
 		FD88B17A2758F9560001B1AC /* Texting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD88B1792758F9560001B1AC /* Texting.storyboard */; };
 		FDABA71E275B739F00C0000A /* APIService.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDABA71D275B739F00C0000A /* APIService.storyboard */; };
 		FDABA720275B73CB00C0000A /* APIControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDABA71F275B73CB00C0000A /* APIControler.swift */; };
+		FDABA724275C985A00C0000A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDABA723275C985A00C0000A /* Model.swift */; };
+		FDABA726275C988400C0000A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDABA725275C988400C0000A /* APIService.swift */; };
+		FDABA728275C989F00C0000A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDABA727275C989F00C0000A /* TableViewCell.swift */; };
+		FDABA72A275C98AE00C0000A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDABA729275C98AE00C0000A /* ViewModel.swift */; };
+		FDABA72C275C9A9D00C0000A /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDABA72B275C9A9D00C0000A /* SubViewController.swift */; };
+		FDABA72E275C9AF500C0000A /* SubView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDABA72D275C9AF500C0000A /* SubView.storyboard */; };
+		FDABA730275CA96600C0000A /* SubViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDABA72F275CA96600C0000A /* SubViewCell.swift */; };
+		FDABA732275CA9AD00C0000A /* SubViewSequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDABA731275CA9AD00C0000A /* SubViewSequeue.swift */; };
+		FDBB0727275E4FDE007F4481 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBB0726275E4FDE007F4481 /* AnimationView.swift */; };
+		FDBB0729275E57E7007F4481 /* Animation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDBB0728275E57E7007F4481 /* Animation.storyboard */; };
+		FDC2A2F1275E46B400BC8F8D /* NotificationPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC2A2F0275E46B400BC8F8D /* NotificationPush.swift */; };
 		FDE34880274FC5D0008A130D /* AlertView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDE3487F274FC5CF008A130D /* AlertView.storyboard */; };
 		FDFA6CA72751F1CD00639F6B /* MediaShareAndShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA6CA62751F1CD00639F6B /* MediaShareAndShow.swift */; };
 		FDFA6CA92752038800639F6B /* MediaAndImageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDFA6CA82752038800639F6B /* MediaAndImageView.storyboard */; };
@@ -34,6 +45,17 @@
 		FD88B1792758F9560001B1AC /* Texting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Texting.storyboard; sourceTree = "<group>"; };
 		FDABA71D275B739F00C0000A /* APIService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APIService.storyboard; sourceTree = "<group>"; };
 		FDABA71F275B73CB00C0000A /* APIControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIControler.swift; sourceTree = "<group>"; };
+		FDABA723275C985A00C0000A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		FDABA725275C988400C0000A /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		FDABA727275C989F00C0000A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		FDABA729275C98AE00C0000A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		FDABA72B275C9A9D00C0000A /* SubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewController.swift; sourceTree = "<group>"; };
+		FDABA72D275C9AF500C0000A /* SubView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SubView.storyboard; sourceTree = "<group>"; };
+		FDABA72F275CA96600C0000A /* SubViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewCell.swift; sourceTree = "<group>"; };
+		FDABA731275CA9AD00C0000A /* SubViewSequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewSequeue.swift; sourceTree = "<group>"; };
+		FDBB0726275E4FDE007F4481 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
+		FDBB0728275E57E7007F4481 /* Animation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Animation.storyboard; path = InLoveApp/Animation/Animation.storyboard; sourceTree = "<group>"; };
+		FDC2A2F0275E46B400BC8F8D /* NotificationPush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPush.swift; sourceTree = "<group>"; };
 		FDE3487F274FC5CF008A130D /* AlertView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AlertView.storyboard; sourceTree = "<group>"; };
 		FDFA6CA62751F1CD00639F6B /* MediaShareAndShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaShareAndShow.swift; sourceTree = "<group>"; };
 		FDFA6CA82752038800639F6B /* MediaAndImageView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MediaAndImageView.storyboard; sourceTree = "<group>"; };
@@ -69,6 +91,10 @@
 		FD5DAD4C27490D3B00842195 /* SubView */ = {
 			isa = PBXGroup;
 			children = (
+				FDABA72D275C9AF500C0000A /* SubView.storyboard */,
+				FDABA72B275C9A9D00C0000A /* SubViewController.swift */,
+				FDABA72F275CA96600C0000A /* SubViewCell.swift */,
+				FDABA731275CA9AD00C0000A /* SubViewSequeue.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -85,6 +111,7 @@
 		FD5DAD4E27490D5000842195 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
+				FDC2A2F0275E46B400BC8F8D /* NotificationPush.swift */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -92,6 +119,7 @@
 		FD5DAD4F27490D5B00842195 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				FDBB0726275E4FDE007F4481 /* AnimationView.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -127,6 +155,10 @@
 			children = (
 				FDABA71D275B739F00C0000A /* APIService.storyboard */,
 				FDABA71F275B73CB00C0000A /* APIControler.swift */,
+				FDABA723275C985A00C0000A /* Model.swift */,
+				FDABA725275C988400C0000A /* APIService.swift */,
+				FDABA727275C989F00C0000A /* TableViewCell.swift */,
+				FDABA729275C98AE00C0000A /* ViewModel.swift */,
 			);
 			path = RestfulAPIService;
 			sourceTree = "<group>";
@@ -141,6 +173,7 @@
 		FDFC6E7C2747B6DF002A6CDA = {
 			isa = PBXGroup;
 			children = (
+				FDBB0728275E57E7007F4481 /* Animation.storyboard */,
 				FDFC6E872747B6DF002A6CDA /* InLoveApp */,
 				FDFC6E862747B6DF002A6CDA /* Products */,
 			);
@@ -236,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD5DAD5D27491A2800842195 /* ViewControl.storyboard in Resources */,
+				FDABA72E275C9AF500C0000A /* SubView.storyboard in Resources */,
 				FDFC6E952747B6E0002A6CDA /* LaunchScreen.storyboard in Resources */,
 				FD5DAD7C274BC93E00842195 /* asset.xcassets in Resources */,
 				FDFC6E902747B6DF002A6CDA /* Main.storyboard in Resources */,
@@ -243,6 +277,7 @@
 				FDE34880274FC5D0008A130D /* AlertView.storyboard in Resources */,
 				FD88B17A2758F9560001B1AC /* Texting.storyboard in Resources */,
 				FDABA71E275B739F00C0000A /* APIService.storyboard in Resources */,
+				FDBB0729275E57E7007F4481 /* Animation.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,14 +288,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDABA732275CA9AD00C0000A /* SubViewSequeue.swift in Sources */,
+				FDABA724275C985A00C0000A /* Model.swift in Sources */,
 				FD5DAD5527490F0100842195 /* BaseViewController.swift in Sources */,
 				FDFC6E8D2747B6DF002A6CDA /* ViewController.swift in Sources */,
 				FDFC6E892747B6DF002A6CDA /* AppDelegate.swift in Sources */,
 				FD88B1782758F8EF0001B1AC /* Text.swift in Sources */,
 				FD5DAD5327490DEF00842195 /* Alert.swift in Sources */,
+				FDBB0727275E4FDE007F4481 /* AnimationView.swift in Sources */,
+				FDABA728275C989F00C0000A /* TableViewCell.swift in Sources */,
+				FDC2A2F1275E46B400BC8F8D /* NotificationPush.swift in Sources */,
+				FDABA72C275C9A9D00C0000A /* SubViewController.swift in Sources */,
+				FDABA726275C988400C0000A /* APIService.swift in Sources */,
 				FDFC6E8B2747B6DF002A6CDA /* SceneDelegate.swift in Sources */,
 				FDFA6CA72751F1CD00639F6B /* MediaShareAndShow.swift in Sources */,
+				FDABA72A275C98AE00C0000A /* ViewModel.swift in Sources */,
 				FDABA720275B73CB00C0000A /* APIControler.swift in Sources */,
+				FDABA730275CA96600C0000A /* SubViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,18 @@ import UIKit
 import Photos
 import PhotosUI
 
-class MediaAndImageViewController : UIViewController,PHPickerViewControllerDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MediaAndImageViewController : UIViewController,PHPickerViewControllerDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIActivityItemSource {
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        return "Nothing"
+    }
+    
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        if activityType == .airDrop {
+            print("Post to airDrop")
+        }
+        return "Done"
+    }
+    
     
     //photos
     var allPhotos : PHFetchResult<PHAsset>? = nil
@@ -115,7 +126,8 @@ class MediaAndImageViewController : UIViewController,PHPickerViewControllerDeleg
             activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
 
             // exclude some activity types from the list (optional)
-            activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+            activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop,
+                                                             UIActivity.ActivityType.postToTwitter,UIActivity.ActivityType.postToFacebook ]
 
             // present the view controller
             self.present(activityViewController, animated: true, completion: nil)

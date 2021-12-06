@@ -61,6 +61,24 @@
                                     <segue destination="tn2-oT-aNc" kind="show" id="Ezu-8d-8Ta"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtI-Oa-T0J">
+                                <rect key="frame" x="173" y="334" width="80" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="SubView"/>
+                                <connections>
+                                    <segue destination="rsI-XX-gqI" kind="show" id="8yR-X2-DeO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6HW-bQ-sDU">
+                                <rect key="frame" x="166" y="397" width="89" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Animation"/>
+                                <connections>
+                                    <segue destination="6pi-h7-3uv" kind="show" id="VzB-no-7dO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -145,6 +163,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bKy-lA-OBy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1663" y="-33"/>
+        </scene>
+        <!--SubView-->
+        <scene sceneID="eCq-oc-uja">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SubView" id="rsI-XX-gqI" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="GlP-Mj-rIp"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ntu-pu-Dyo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1653" y="10"/>
+        </scene>
+        <!--Animation-->
+        <scene sceneID="wuw-Rc-ADb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Animation" id="6pi-h7-3uv" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="KUQ-N4-r7Q"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jxg-yO-JGd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1659" y="44"/>
         </scene>
     </scenes>
     <resources>

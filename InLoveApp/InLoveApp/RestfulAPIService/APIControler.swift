@@ -30,7 +30,7 @@ class APIController : UIViewController {
 }
 
 // MARK: - TableView
-extension MovieViewController: UITableViewDataSource {
+extension APIController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection(section: section)
     }
