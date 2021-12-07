@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD5DA0B7275F972B00F803E9 /* APISegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5DA0B6275F972B00F803E9 /* APISegue.swift */; };
 		FD5DAD5327490DEF00842195 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5DAD5227490DEF00842195 /* Alert.swift */; };
 		FD5DAD5527490F0100842195 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5DAD5427490F0100842195 /* BaseViewController.swift */; };
 		FD5DAD5D27491A2800842195 /* ViewControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5DAD5C27491A2800842195 /* ViewControl.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD5DA0B6275F972B00F803E9 /* APISegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISegue.swift; sourceTree = "<group>"; };
 		FD5DAD5227490DEF00842195 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		FD5DAD5427490F0100842195 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FD5DAD5C27491A2800842195 /* ViewControl.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewControl.storyboard; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				FDABA725275C988400C0000A /* APIService.swift */,
 				FDABA727275C989F00C0000A /* TableViewCell.swift */,
 				FDABA729275C98AE00C0000A /* ViewModel.swift */,
+				FD5DA0B6275F972B00F803E9 /* APISegue.swift */,
 			);
 			path = RestfulAPIService;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				FDC2A2F1275E46B400BC8F8D /* NotificationPush.swift in Sources */,
 				FDABA72C275C9A9D00C0000A /* SubViewController.swift in Sources */,
 				FDABA726275C988400C0000A /* APIService.swift in Sources */,
+				FD5DA0B7275F972B00F803E9 /* APISegue.swift in Sources */,
 				FDFC6E8B2747B6DF002A6CDA /* SceneDelegate.swift in Sources */,
 				FDFA6CA72751F1CD00639F6B /* MediaShareAndShow.swift in Sources */,
 				FDABA72A275C98AE00C0000A /* ViewModel.swift in Sources */,

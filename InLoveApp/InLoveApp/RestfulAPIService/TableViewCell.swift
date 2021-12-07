@@ -5,79 +5,74 @@
 //  Created by Vu Thien on 05/12/2021.
 //
 
+import Foundation
 import UIKit
 
-class MovieTableViewCell: UITableViewCell {
+struct Model123 {
+    var name:String
+    var place:String
+    var image:String
+}
 
-    @IBOutlet weak var moviePoster: UIImageView!
-    @IBOutlet weak var movieTitle: UILabel!
-    @IBOutlet weak var movieYear: UILabel!
-    @IBOutlet weak var movieOverview: UILabel!
-    @IBOutlet weak var movieRate: UILabel!
+class TableViewCell : UITableViewCell {
     
-    private var urlString: String = ""
+    var title:UILabel!
+    var date:UILabel!
+    var overview:UILabel!
+    var rate:UILabel!
+    var poster:UIImageView!
     
-    // Setup movies values
-    func setCellWithValuesOf(_ movie:Movie) {
-        updateUI(title: movie.title, releaseDate: movie.year, rating: movie.rate, overview: movie.overview, poster: movie.posterImage)
+    let array = [
+                    Model123(name: "Linh", place: "Ha Noi", image: "gai1.jpg"),
+                    Model123(name: "Dao", place: "Ho Chi Minh", image: "gai2.jpg"),
+                    Model123(name: "Ngoc", place: "Da Nang", image: "gai3.jpg"),
+                    Model123(name: "Huyen", place: "Lam Dong", image: "gai4.jpg"),
+                    Model123(name: "Trang", place: "Dong Nai", image: "gai5.jpg"),
+                    Model123(name: "Thao", place: "Tay Ninh", image: "gai6.jpg"),
+                    Model123(name: "Linh", place: "Ha Noi", image: "gai7.jpg")]
+    
+    func setupViewCell(_ data:MoviewModel) {
+        viewDidLoad(data)
     }
     
-    // Update the UI Views
-    private func updateUI(title: String?, releaseDate: String?, rating: Double?, overview: String?, poster: String?) {
+    func viewDidLoad(_ data:MoviewModel) {
+        //init poster
+        poster = UIImageView.init(frame: CGRect(x: 5, y: 5, width: 60, height: 100))
+        poster.image = UIImage(named: array[5].name)
+        self.addSubview(poster)
         
-        self.movieTitle.text = title
-        self.movieYear.text = convertDateFormater(releaseDate)
-        guard let rate = rating else {return}
-        self.movieRate.text = String(rate)
-        self.movieOverview.text = overview
+        //init title
+        title = UILabel.init(frame: CGRect(x: 70, y: 5, width: 70, height: 20))
+//        title.text = data.title
+        title.textAlignment = .left
+        title.font = .boldSystemFont(ofSize: 12)
+        title.tintColor = .black
         
-        guard let posterString = poster else {return}
-        urlString = "https://image.tmdb.org/t/p/w300" + posterString
+        //init date
+        date = UILabel.init(frame: CGRect(x: 70, y: 30, width: 70, height: 20))
+//        date.text = convertDateFormater(data.releaseDate)
+        date.textAlignment = .left
+        date.font = .systemFont(ofSize: 13)
+        date.tintColor = .gray
         
-        guard let posterImageURL = URL(string: urlString) else {
-            self.moviePoster.image = UIImage(named: "noImageAvailable")
-            return
-        }
+        //init overview
+        overview = UILabel.init(frame: CGRect(x: 70, y: 70, width: 100, height: 40))
+//        overview.text = data.overview
+        overview.textAlignment = .left
+        overview.font = .systemFont(ofSize: 13)
+        overview.tintColor = .black
         
-        // Before we download the image we clear out the old one
-        self.moviePoster.image = nil
-        
-        getImageDataFrom(url: posterImageURL)
-        
-    }
-    
-    // MARK: - Get image data
-    private func getImageDataFrom(url: URL) {
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            // Handle Error
-            if let error = error {
-                print("DataTask error: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let data = data else {
-                // Handle Empty Data
-                print("Empty Data")
-                return
-            }
-            
-            DispatchQueue.main.async {
-                if let image = UIImage(data: data) {
-                    self.moviePoster.image = image
-                }
-            }
-        }.resume()
     }
     
     // MARK: - Convert date format
     func convertDateFormater(_ date: String?) -> String {
         var fixDate = ""
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        if let originalDate = date {
-            if let newDate = dateFormatter.date(from: originalDate) {
-                dateFormatter.dateFormat = "dd.MM.yyyy"
-                fixDate = dateFormatter.string(from: newDate)
+        let dateSuc = DateFormatter()
+        dateSuc.dateStyle = .medium
+        dateSuc.dateFormat = "DD.MM.YYYY"
+        if let originDate = date {
+            if let nowDate = dateSuc.date(from: originDate) {
+                fixDate = dateSuc.string(from: nowDate)
             }
         }
         return fixDate

@@ -33,7 +33,6 @@ class SubViewController : UIViewController,UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        let notification = UserNotification.init()
     }
     
     func setupTableView() {
