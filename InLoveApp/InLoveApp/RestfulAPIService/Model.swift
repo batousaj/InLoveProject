@@ -9,18 +9,29 @@
 import Foundation
 
 
-struct Response:Decodable {
-    let moviesInfo : [MoviewModel]
-    let status:String
+struct Response: Decodable {
     
+    let moviesInfo: [MoviewModel]
+    
+    private enum CodingKeys: String, CodingKey {
+        case moviesInfo = "results"
+    }
 }
 
-struct MoviewModel:Decodable {
-    let title:String? //title
-    let releaseDate:String? //release_date
-    let overview:String? //overview
-    let posterImage:String? //poster_path
-    let rate:String? //vote_average
+struct MoviewModel: Codable {
+    
+    let title: String?
+    let releaseDate: String?
+    let rate: Double?
+    let posterImage: String?
+    let overview: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case title, overview
+        case releaseDate = "release_date"
+        case rate = "vote_average"
+        case posterImage = "poster_path"
+    }
 }
 
 

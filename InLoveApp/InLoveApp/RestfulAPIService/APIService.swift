@@ -10,7 +10,7 @@ import Foundation
 class APIService {
     private var dataTask : URLSessionDataTask?
     
-    func getData( url:String , completion: @escaping (Result<Response,Error>) -> Void ) {
+    func getData<T:Decodable>( url:String , response:T.Type,completion: @escaping (Result<T,Error>) -> Void ) {
         
         guard let URLtask = URL(string: url) else {
             print("Error to convert URL")
@@ -18,18 +18,20 @@ class APIService {
         }
         
         URLSession.shared.dataTask(with: URLtask) { (data, response, error) in
-            if error != nil {
-                print("Error when send request URL")
-                completion(.failure(error!))
+            // Handle Error
+            if let error = error {
+                completion(.failure(error))
+                print("DataTask error: \(error.localizedDescription)")
                 return
             }
-            
-            guard (response as? HTTPURLResponse) != nil else {
+                        
+            guard let response = response as? HTTPURLResponse else {
                 // Handle Empty Response
                 print("Empty Response")
                 return
             }
-            
+            print("Response status code: \(response.statusCode)")
+                        
             guard let data = data else {
                 // Handle Empty Data
                 print("Empty Data")
@@ -37,17 +39,18 @@ class APIService {
             }
             
             do {
-                let movies = try JSONDecoder().decode(Response.self, from: data)
+                // Parse the data
+                let decoder = JSONDecoder()
+                let jsonData = try decoder.decode(T.self, from: data)
+                
+                // Back to the main thread
                 DispatchQueue.main.async {
-                    completion(.success(movies))
+                    completion(.success(jsonData))
                 }
-            }
-            catch {
+            } catch let error {
                 print("Error when decode JSON strings")
                 completion(.failure(error))
-                return
             }
-            
             
         }.resume()
         

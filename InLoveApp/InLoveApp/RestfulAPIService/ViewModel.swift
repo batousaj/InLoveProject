@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreMedia
+import UIKit
 
 let URLstring = "https://api.themoviedb.org/3/movie/popular?api_key=4e0be2c22f7268edffde97481d49064a&language=en-US&page=1"
 
@@ -17,17 +18,19 @@ class MovieViewModel {
         
     var Service:APIService!
     
-    private var movies = [MoviewModel]()
+    var movies = [MoviewModel]()
 
     func initService() {
         Service = APIService()
     }
     
     func fetchMoviesData(completion: @escaping (Int) -> Void) {
-        Service.getData(url: URLstring) { [weak self] (result) in
+        
+        Service.getData(url: URLstring, response:Response.self) {
+            (result) in
             switch result {
                 case .success(let response) :
-                    self?.movies = response.moviesInfo
+                    self.movies = response.moviesInfo
                     completion(NO_ERROR_CODE)
                     break
                 

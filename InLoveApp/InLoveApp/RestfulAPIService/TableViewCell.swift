@@ -37,42 +37,46 @@ class TableViewCell : UITableViewCell {
     
     func viewDidLoad(_ data:MoviewModel) {
         //init poster
-        poster = UIImageView.init(frame: CGRect(x: 5, y: 5, width: 60, height: 100))
-        poster.image = UIImage(named: array[5].name)
+        poster = UIImageView.init(frame: CGRect(x: 5, y: 10, width: 60, height: 80))
+        poster.image = UIImage(named: array[5].image)
         self.addSubview(poster)
         
         //init title
-        title = UILabel.init(frame: CGRect(x: 70, y: 5, width: 70, height: 20))
-//        title.text = data.title
+        title = UILabel.init(frame: CGRect(x: 70, y: 5, width: 400, height: 20))
+        title.text = data.title
         title.textAlignment = .left
-        title.font = .boldSystemFont(ofSize: 12)
+        title.font = .boldSystemFont(ofSize: 14)
         title.tintColor = .black
+        self.addSubview(title)
         
         //init date
-        date = UILabel.init(frame: CGRect(x: 70, y: 30, width: 70, height: 20))
-//        date.text = convertDateFormater(data.releaseDate)
+        date = UILabel.init(frame: CGRect(x: 70, y: 30, width: 100, height: 20))
+        date.text = convertDateFormater(data.releaseDate)
         date.textAlignment = .left
         date.font = .systemFont(ofSize: 13)
-        date.tintColor = .gray
+        date.textColor = .gray
+        self.addSubview(date)
         
         //init overview
-        overview = UILabel.init(frame: CGRect(x: 70, y: 70, width: 100, height: 40))
-//        overview.text = data.overview
+        overview = UILabel.init(frame: CGRect(x: 70, y: 55, width: self.frame.width - 70, height: 40))
+        overview.text = data.overview
+        overview.numberOfLines = 2
         overview.textAlignment = .left
-        overview.font = .systemFont(ofSize: 13)
+        overview.font = .systemFont(ofSize: 12)
         overview.tintColor = .black
+        self.addSubview(overview)
         
     }
     
     // MARK: - Convert date format
     func convertDateFormater(_ date: String?) -> String {
         var fixDate = ""
-        let dateSuc = DateFormatter()
-        dateSuc.dateStyle = .medium
-        dateSuc.dateFormat = "DD.MM.YYYY"
-        if let originDate = date {
-            if let nowDate = dateSuc.date(from: originDate) {
-                fixDate = dateSuc.string(from: nowDate)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if let originalDate = date {
+            if let newDate = dateFormatter.date(from: originalDate) {
+                dateFormatter.dateFormat = "dd.MM.yyyy"
+                fixDate = dateFormatter.string(from: newDate)
             }
         }
         return fixDate

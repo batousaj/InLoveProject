@@ -28,6 +28,9 @@
 		FDBB0729275E57E7007F4481 /* Animation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDBB0728275E57E7007F4481 /* Animation.storyboard */; };
 		FDC2A2F1275E46B400BC8F8D /* NotificationPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC2A2F0275E46B400BC8F8D /* NotificationPush.swift */; };
 		FDE34880274FC5D0008A130D /* AlertView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDE3487F274FC5CF008A130D /* AlertView.storyboard */; };
+		FDE49DEB2763546C008794D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE49DEA2763546C008794D7 /* LoginViewController.swift */; };
+		FDE49DED27635486008794D7 /* ToolbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE49DEC27635486008794D7 /* ToolbarViewController.swift */; };
+		FDE49DEF2763991A008794D7 /* ToolBarViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDE49DEE2763991A008794D7 /* ToolBarViewController.storyboard */; };
 		FDFA6CA72751F1CD00639F6B /* MediaShareAndShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA6CA62751F1CD00639F6B /* MediaShareAndShow.swift */; };
 		FDFA6CA92752038800639F6B /* MediaAndImageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDFA6CA82752038800639F6B /* MediaAndImageView.storyboard */; };
 		FDFC6E892747B6DF002A6CDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFC6E882747B6DF002A6CDA /* AppDelegate.swift */; };
@@ -56,9 +59,12 @@
 		FDABA72F275CA96600C0000A /* SubViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewCell.swift; sourceTree = "<group>"; };
 		FDABA731275CA9AD00C0000A /* SubViewSequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewSequeue.swift; sourceTree = "<group>"; };
 		FDBB0726275E4FDE007F4481 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
-		FDBB0728275E57E7007F4481 /* Animation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Animation.storyboard; path = InLoveApp/Animation/Animation.storyboard; sourceTree = "<group>"; };
+		FDBB0728275E57E7007F4481 /* Animation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Animation.storyboard; sourceTree = "<group>"; };
 		FDC2A2F0275E46B400BC8F8D /* NotificationPush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPush.swift; sourceTree = "<group>"; };
 		FDE3487F274FC5CF008A130D /* AlertView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AlertView.storyboard; sourceTree = "<group>"; };
+		FDE49DEA2763546C008794D7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FDE49DEC27635486008794D7 /* ToolbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarViewController.swift; sourceTree = "<group>"; };
+		FDE49DEE2763991A008794D7 /* ToolBarViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ToolBarViewController.storyboard; sourceTree = "<group>"; };
 		FDFA6CA62751F1CD00639F6B /* MediaShareAndShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaShareAndShow.swift; sourceTree = "<group>"; };
 		FDFA6CA82752038800639F6B /* MediaAndImageView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MediaAndImageView.storyboard; sourceTree = "<group>"; };
 		FDFC6E852747B6DF002A6CDA /* InLoveApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InLoveApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +127,7 @@
 		FD5DAD4F27490D5B00842195 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				FDBB0728275E57E7007F4481 /* Animation.storyboard */,
 				FDBB0726275E4FDE007F4481 /* AnimationView.swift */,
 			);
 			path = Animation;
@@ -169,14 +176,23 @@
 		FDE3487C274FB7FD008A130D /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
+				FDE49DEE2763991A008794D7 /* ToolBarViewController.storyboard */,
+				FDE49DEC27635486008794D7 /* ToolbarViewController.swift */,
 			);
 			path = Toolbar;
+			sourceTree = "<group>";
+		};
+		FDE49DE927635435008794D7 /* Login  */ = {
+			isa = PBXGroup;
+			children = (
+				FDE49DEA2763546C008794D7 /* LoginViewController.swift */,
+			);
+			path = "Login ";
 			sourceTree = "<group>";
 		};
 		FDFC6E7C2747B6DF002A6CDA = {
 			isa = PBXGroup;
 			children = (
-				FDBB0728275E57E7007F4481 /* Animation.storyboard */,
 				FDFC6E872747B6DF002A6CDA /* InLoveApp */,
 				FDFC6E862747B6DF002A6CDA /* Products */,
 			);
@@ -193,6 +209,7 @@
 		FDFC6E872747B6DF002A6CDA /* InLoveApp */ = {
 			isa = PBXGroup;
 			children = (
+				FDE49DE927635435008794D7 /* Login  */,
 				FDABA71C275B733D00C0000A /* RestfulAPIService */,
 				FDE3487C274FB7FD008A130D /* Toolbar */,
 				FD5DAD7A274BC90600842195 /* Media */,
@@ -280,6 +297,7 @@
 				FDE34880274FC5D0008A130D /* AlertView.storyboard in Resources */,
 				FD88B17A2758F9560001B1AC /* Texting.storyboard in Resources */,
 				FDABA71E275B739F00C0000A /* APIService.storyboard in Resources */,
+				FDE49DEF2763991A008794D7 /* ToolBarViewController.storyboard in Resources */,
 				FDBB0729275E57E7007F4481 /* Animation.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,9 +313,11 @@
 				FDABA724275C985A00C0000A /* Model.swift in Sources */,
 				FD5DAD5527490F0100842195 /* BaseViewController.swift in Sources */,
 				FDFC6E8D2747B6DF002A6CDA /* ViewController.swift in Sources */,
+				FDE49DEB2763546C008794D7 /* LoginViewController.swift in Sources */,
 				FDFC6E892747B6DF002A6CDA /* AppDelegate.swift in Sources */,
 				FD88B1782758F8EF0001B1AC /* Text.swift in Sources */,
 				FD5DAD5327490DEF00842195 /* Alert.swift in Sources */,
+				FDE49DED27635486008794D7 /* ToolbarViewController.swift in Sources */,
 				FDBB0727275E4FDE007F4481 /* AnimationView.swift in Sources */,
 				FDABA728275C989F00C0000A /* TableViewCell.swift in Sources */,
 				FDC2A2F1275E46B400BC8F8D /* NotificationPush.swift in Sources */,

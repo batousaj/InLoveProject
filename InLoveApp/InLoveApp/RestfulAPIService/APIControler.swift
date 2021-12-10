@@ -58,12 +58,12 @@ class APIViewController : UIViewController {
         self.view.addSubview(self.movieTableView)
         
         loadDataTableView()
-//        if self.errorLoading == HAS_ERROR_CODE {
+        if self.errorLoading == HAS_ERROR_CODE {
             self.loadingView = UIActivityIndicatorView.init(frame: CGRect(x: 0, y: 160, width: self.view.frame.width, height: self.view.frame.height - 160))
             self.loadingView.startAnimating()
             self.view.willRemoveSubview(self.movieTableView)
             self.view.addSubview(self.loadingView)
-//        }
+        }
 
     }
     
@@ -83,7 +83,10 @@ extension APIViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath) as! TableViewCell
         let data = movieViewModel.getMoviesInfoWith(index: indexPath)
+        cell.layer.borderWidth = 0.5
+        cell.layer.borderColor = UIColor.gray.cgColor
         cell.setupViewCell(data)
+        
         return cell
     }
     
@@ -91,6 +94,10 @@ extension APIViewController : UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
         moviesData = movieViewModel.getMoviesInfoWith(index: indexPath)
         self.performSegue(withIdentifier: "APISegueView", sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0; // your dynamic height...
     }
     
 }
