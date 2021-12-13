@@ -20,31 +20,57 @@ class ToolBarViewController : UIViewController {
     }
     
     func setupBottomToolBar() {
-        bottomToolBar = UIToolbar.init(frame: CGRect(x: 0, y: view.frame.height - 50, width: view.frame.width, height: 50))
+        bottomToolBar = UIToolbar.init(frame: CGRect(x: 0, y: view.frame.height - 80, width: view.frame.width, height: 80))
         var items = [UIBarButtonItem]()
         
-        let buton1 = UIButton.init(frame: CGRect(x: 550, y: view.frame.height - 40, width: 40, height: 20))
-        buton1.setTitle("Sheet 4", for: .normal)
+        let buton1 = UIButton.init(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
+//        buton1.setTitle("Sheet 4", for: .normal)
         buton1.setTitleColor(.black, for: .normal)
         
+        var configuration = UIButton.Configuration.filled()
+        configuration.title = "title"
+        configuration.image = UIImage(systemName: "swift")
+        configuration.imagePlacement = .top
+        configuration.titlePadding = 5
+        configuration.imagePadding = 5
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        
+        buton1.configuration = configuration
+        
         let button2 = UIBarButtonItem(customView: buton1)
-//        button2.SystemItem = .flexibleSpace
+        
+        let buton = UIButton.init(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
+        buton.setTitle("Sheet 1", for: .normal)
+        buton.setTitleColor(.black, for: .normal)
+        buton.layer.borderWidth = 1.0
+        buton.contentVerticalAlignment = .top
+        
+        var configuration1 = UIButton.Configuration.plain()
+        configuration1.title = "Book"
+        configuration1.image = UIImage(systemName: "book")
+        configuration1.imagePlacement = .leading
+        configuration1.titlePadding = 5
+        configuration1.imagePadding = 5
+        configuration1.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        buton.configuration = configuration1
+        
+        let button3 = UIBarButtonItem(customView: buton)
+        button3.setTitlePositionAdjustment(UIOffset(horizontal: -10, vertical: -10), for: .default)
         
         items.append(
-            UIBarButtonItem(title: "Sheet 1", style: .plain, target: self, action: #selector(OnClickSheet1))
-        )
-        items.append(
-            UIBarButtonItem(title: "Sheet 2", style: .plain, target: self, action: #selector(OnClickSheet2))
-        )
-        items.append(
-            UIBarButtonItem(title: "Sheet 3", style: .plain, target: self, action: #selector(OnClickSheet3))
-        )
-        items.append(
             button2
+        )
+        items.append(
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        )
+        items.append(
+            button3
         )
         
         bottomToolBar.barStyle = .default
         bottomToolBar.setItems(items, animated: true)
+        
+        bottomToolBar.alignmentRect(forFrame: CGRect(x: 5, y: 5, width: 20, height: 40))
         
         view.addSubview(bottomToolBar)
     }
