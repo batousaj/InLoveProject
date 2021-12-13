@@ -11,7 +11,8 @@ import UIKit
 class HomeViewController : UIViewController {
     
     var welcome:UILabel!
-    
+    @IBOutlet weak var backBut: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupElement()
@@ -24,6 +25,17 @@ class HomeViewController : UIViewController {
         welcome.font = .boldSystemFont(ofSize: 30)
         welcome.textColor = .black
         self.view.addSubview(welcome)
+        
+        backBut.layer.borderWidth = 1.0
+        backBut.layer.borderColor = UIColor.systemBlue.cgColor
+        
+    }
+    
+    @IBAction func onClickBackButton(_ sender: Any) {
+        let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController
+        
+        self.view.window?.rootViewController = loginViewController
+        self.view.window?.makeKeyAndVisible()
         
     }
     

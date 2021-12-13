@@ -34,6 +34,8 @@ class SubViewController : UIViewController {
     var stackView:UIStackView!
     var isShowStack:Bool!
     
+    var settBut:UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -83,6 +85,15 @@ class SubViewController : UIViewController {
         stackView.isHidden = isShowStack
         view.addSubview(stackView)
         
+        //setting button
+        settBut = UIButton.init(frame: CGRect(x: 20, y: 100, width: 70, height: 30))
+        settBut.setTitle("Setting", for: .normal)
+        settBut.setTitleColor(.systemBlue, for: .normal)
+        settBut.titleLabel?.font = .boldSystemFont(ofSize: 15)
+        settBut.layer.borderWidth = 1.0
+        settBut.layer.borderColor = UIColor.systemGreen.cgColor
+        settBut.addTarget(self, action: #selector(onSettingClick), for: .touchUpInside)
+        view.addSubview(settBut)
     }
     
     func setupTableView() {
@@ -134,6 +145,13 @@ extension SubViewController: UITableViewDataSource,UITableViewDelegate {
         stackView.isHidden = true
         let model = array[0]
         self.performSegue(withIdentifier: "showDetailFlow", sender: model)
+    }
+    
+    @objc func onSettingClick() {
+        let settingViewController = self.storyboard?.instantiateViewController(withIdentifier: "SettingVC") as? SettingViewController
+        
+        self.view.window?.rootViewController = settingViewController
+        self.view.window?.makeKeyAndVisible()
     }
     
 }

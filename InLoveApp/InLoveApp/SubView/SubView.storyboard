@@ -27,6 +27,21 @@
             </objects>
             <point key="canvasLocation" x="1707" y="416"/>
         </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="vx9-aq-YoU">
+            <objects>
+                <viewController storyboardIdentifier="SettingVC" id="abE-NV-rvI" customClass="SettingViewController" customModule="InLoveApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TMx-iN-ur7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Zri-k1-AYA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l9V-qD-Qgk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2532" y="1085"/>
+        </scene>
         <!--Sub View Sequeue-->
         <scene sceneID="OF0-sx-26B">
             <objects>

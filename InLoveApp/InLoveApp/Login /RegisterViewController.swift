@@ -66,7 +66,7 @@ class RegisterViewController : UIViewController {
                 
                 let db = Firestore.firestore()
                 
-                db.collection("users1").addDocument(data: ["ID":fisrtName, "Name":lastName, "uid": result!.user.uid]) { error in
+                db.collection("users").addDocument(data: ["ID":fisrtName, "Name":lastName, "uid": result!.user.uid]) { error in
                     
                     if error != nil {
                         self.showError(error!)

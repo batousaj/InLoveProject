@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		FD4E546427662F5C00B11D0D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4E546327662F5C00B11D0D /* RegisterViewController.swift */; };
+		FD559DF5276789CB00014F96 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD559DF4276789CB00014F96 /* SettingViewController.swift */; };
+		FD559DF827678ECE00014F96 /* SettingCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD559DF727678ECE00014F96 /* SettingCellModel.swift */; };
+		FD559DFA27678EDB00014F96 /* SettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD559DF927678EDB00014F96 /* SettingViewCell.swift */; };
 		FD5DA0B7275F972B00F803E9 /* APISegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5DA0B6275F972B00F803E9 /* APISegue.swift */; };
 		FD5DAD5327490DEF00842195 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5DAD5227490DEF00842195 /* Alert.swift */; };
 		FD5DAD5527490F0100842195 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5DAD5427490F0100842195 /* BaseViewController.swift */; };
@@ -57,6 +60,9 @@
 
 /* Begin PBXFileReference section */
 		FD4E546327662F5C00B11D0D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		FD559DF4276789CB00014F96 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		FD559DF727678ECE00014F96 /* SettingCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCellModel.swift; sourceTree = "<group>"; };
+		FD559DF927678EDB00014F96 /* SettingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewCell.swift; sourceTree = "<group>"; };
 		FD5DA0B6275F972B00F803E9 /* APISegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISegue.swift; sourceTree = "<group>"; };
 		FD5DAD5227490DEF00842195 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		FD5DAD5427490F0100842195 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +123,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD559DF627678E1E00014F96 /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				FD559DF4276789CB00014F96 /* SettingViewController.swift */,
+				FD559DF727678ECE00014F96 /* SettingCellModel.swift */,
+				FD559DF927678EDB00014F96 /* SettingViewCell.swift */,
+			);
+			path = SettingView;
+			sourceTree = "<group>";
+		};
 		FD5DAD4B27490D2600842195 /* ViewControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +145,7 @@
 		FD5DAD4C27490D3B00842195 /* SubView */ = {
 			isa = PBXGroup;
 			children = (
+				FD559DF627678E1E00014F96 /* SettingView */,
 				FDABA72D275C9AF500C0000A /* SubView.storyboard */,
 				FDABA72B275C9A9D00C0000A /* SubViewController.swift */,
 				FDABA72F275CA96600C0000A /* SubViewCell.swift */,
@@ -386,6 +403,7 @@
 				FDABA732275CA9AD00C0000A /* SubViewSequeue.swift in Sources */,
 				FDABA724275C985A00C0000A /* Model.swift in Sources */,
 				FD5DAD5527490F0100842195 /* BaseViewController.swift in Sources */,
+				FD559DFA27678EDB00014F96 /* SettingViewCell.swift in Sources */,
 				FDFC6E8D2747B6DF002A6CDA /* ViewController.swift in Sources */,
 				FDE49DEB2763546C008794D7 /* LoginViewController.swift in Sources */,
 				FDFC6E892747B6DF002A6CDA /* AppDelegate.swift in Sources */,
@@ -394,7 +412,9 @@
 				FD5DAD5327490DEF00842195 /* Alert.swift in Sources */,
 				FDE49DED27635486008794D7 /* ToolbarViewController.swift in Sources */,
 				FDE49E0E27649798008794D7 /* Utilities.swift in Sources */,
+				FD559DF5276789CB00014F96 /* SettingViewController.swift in Sources */,
 				FDBB0727275E4FDE007F4481 /* AnimationView.swift in Sources */,
+				FD559DF827678ECE00014F96 /* SettingCellModel.swift in Sources */,
 				FDABA728275C989F00C0000A /* TableViewCell.swift in Sources */,
 				FDC2A2F1275E46B400BC8F8D /* NotificationPush.swift in Sources */,
 				FD4E546427662F5C00B11D0D /* RegisterViewController.swift in Sources */,
