@@ -12,6 +12,7 @@ class SubViewCell : UITableViewCell {
     
     var image:UIImageView!
     var text:UILabel!
+    var switchLeft:UISwitch!
     
     func setCellWithValues(_ model:Model) {
         self.intialize()
@@ -32,5 +33,11 @@ class SubViewCell : UITableViewCell {
         self.text.tintColor = .black
         self.text.font = .systemFont(ofSize: 13)
 //        text.sizeToFit()
+        self.selectionStyle = .none
+        switchLeft = UISwitch()
+        switchLeft.center = CGPoint(x: 250, y: 0)
+    
+        self.addSubview(switchLeft)
     }
+
 }

@@ -35,6 +35,13 @@ class SubViewController : UIViewController {
     var isShowStack:Bool!
     
     var settBut:UIButton!
+    var popupView:UIView!
+    var menu:UIMenu!
+    
+    let backgroundDuration: TimeInterval = 0.1
+    var longPressRecognizer:UILongPressGestureRecognizer!
+    
+    @IBOutlet var longpressView: UILongPressGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +57,28 @@ class SubViewController : UIViewController {
         subButton.layer.borderWidth = 1.0
         subButton.layer.borderColor = UIColor.black.cgColor
         subButton.addTarget(self, action: #selector(OnbuttonClick), for: .touchUpInside)
+        
+        let action1 = UIAction.init(title: "Copy", image: nil, identifier: nil, discoverabilityTitle: nil, attributes: UIMenuElement.Attributes.destructive, state: UIMenuElement.State.off, handler: { action in
+            print("Click in Copy")
+        })
+        
+        let action:[UIAction] = [
+        
+            action1,
+            
+            UIAction(title: "Pass", image: UIImage(systemName: "swift"), identifier: nil, discoverabilityTitle: nil, attributes: UIMenuElement.Attributes.destructive, state: UIMenuElement.State.off, handler: { action in
+                print("Click in Pass")
+            }),
+            UIAction(title: "Cut", image: UIImage(systemName: "swift"), identifier: nil, discoverabilityTitle: "Cut it now", attributes: UIMenuElement.Attributes.destructive, state: UIMenuElement.State.off, handler: { action in
+                print("Click in Cut")
+            })
+        ]
+        
+        menu = UIMenu.init(title: "MenuView", image: nil, identifier: nil, options: .displayInline, children: action)
+        menu.image?.withTintColor(.blue, renderingMode: .automatic)
+        
+        subButton.menu = menu
+        
         view.addSubview(subButton)
         
         stackView = UIStackView.init(frame: CGRect(x: view.frame.width - 110, y: 125, width: 100, height: 180))
@@ -94,6 +123,33 @@ class SubViewController : UIViewController {
         settBut.layer.borderColor = UIColor.systemGreen.cgColor
         settBut.addTarget(self, action: #selector(onSettingClick), for: .touchUpInside)
         view.addSubview(settBut)
+        
+        //longpress button
+        longPressRecognizer = UILongPressGestureRecognizer.init(target: self, action: #selector(onLongPress))
+        longPressRecognizer.view?.frame = CGRect(x: 200, y: 100, width: 30, height: 80)
+//        longPressRecognizer.minimumPressDuration = 1.5
+        subButton.addGestureRecognizer(longPressRecognizer)
+        
+        popupView = UIView.init(frame: CGRect(x: 100, y: 100, width: 30, height: 80))
+    
+    }
+    
+    @IBAction func onPress(_ sender: Any) {
+        let press = sender as? UILongPressGestureRecognizer
+        if press?.state == .began {
+            popupView.becomeFirstResponder()
+//            popupView.viewForReset = longPressRecognizer.view
+            print("Is first responder")
+
+            var menu = UIMenuController.shared
+            var deleteItem = UIMenuItem(title: "Delete", action: Selector("deleteLine"))
+            var editItems = UIMenuItem(title: "Edit", action: Selector("editrow"))
+            menu.menuItems = [deleteItem ,editItems]
+
+            menu.setTargetRect(CGRect(x: 0, y: 0, width: 100, height: 50), in: popupView)
+            menu.isMenuVisible = true
+            menu.setMenuVisible(true, animated: true)
+        }
     }
     
     func setupTableView() {
@@ -132,9 +188,9 @@ extension SubViewController: UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        selectItems = array[indexPath.row]
-        self.performSegue(withIdentifier: "showDetailFlow", sender: selectItems)
+//        tableView.deselectRow(at: indexPath, animated: true)
+//        selectItems = array[indexPath.row]
+//        self.performSegue(withIdentifier: "showDetailFlow", sender: selectItems)
     }
     
     @objc func OnbuttonClick() {
@@ -152,6 +208,10 @@ extension SubViewController: UITableViewDataSource,UITableViewDelegate {
         
         self.view.window?.rootViewController = settingViewController
         self.view.window?.makeKeyAndVisible()
+    }
+        
+    @objc func onLongPress( longPressRecognizer:UILongPressGestureRecognizer) {
+        //
     }
     
 }

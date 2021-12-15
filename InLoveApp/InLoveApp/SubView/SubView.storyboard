@@ -11,21 +11,31 @@
         <!--Sub View Controller-->
         <scene sceneID="Uuz-Y3-gEs">
             <objects>
-                <viewController id="M3w-IZ-dNQ" customClass="SubViewController" customModule="InLoveApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SubVC" id="M3w-IZ-dNQ" customClass="SubViewController" customModule="InLoveApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hwe-kA-euk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="sY2-zi-Ptr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="XFt-Ze-Gtm" appends="YES" id="c7H-hF-ua5"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="NNN-F1-Uua"/>
                     <connections>
-                        <segue destination="4WC-qL-LjA" kind="showDetail" identifier="showDetailFlow" id="BbP-ad-f7n"/>
+                        <outlet property="longpressView" destination="XFt-Ze-Gtm" id="BRN-eO-dfw"/>
+                        <segue destination="4WC-qL-LjA" kind="show" identifier="showDetailFlow" id="BbP-ad-f7n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FTJ-db-Y1E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="XFt-Ze-Gtm">
+                    <connections>
+                        <action selector="onPress:" destination="M3w-IZ-dNQ" id="dCx-kc-YSE"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1707" y="416"/>
+            <point key="canvasLocation" x="1705.7971014492755" y="415.84821428571428"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="vx9-aq-YoU">
@@ -37,10 +47,11 @@
                         <viewLayoutGuide key="safeArea" id="Zri-k1-AYA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="C16-6G-btE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l9V-qD-Qgk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2532" y="1085"/>
+            <point key="canvasLocation" x="2487" y="833"/>
         </scene>
         <!--Sub View Sequeue-->
         <scene sceneID="OF0-sx-26B">
@@ -52,10 +63,11 @@
                         <viewLayoutGuide key="safeArea" id="fF3-cZ-5vq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="FXv-fI-6aR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3SW-iN-WQZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2533" y="416"/>
+            <point key="canvasLocation" x="2488" y="167"/>
         </scene>
     </scenes>
     <resources>
