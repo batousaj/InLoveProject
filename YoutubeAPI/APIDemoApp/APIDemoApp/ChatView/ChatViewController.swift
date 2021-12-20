@@ -73,7 +73,6 @@ class ChatViewController : MessagesViewController, MessagesDataSource, MessagesL
         messagesCollectionView.messagesDisplayDelegate = self
         messagesCollectionView.reloadData()
         
-        messageInputBar.delegate = self
     }
     
 }
